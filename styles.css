@@ -189,6 +189,7 @@ body {
     margin: 0 auto;
     width: 100%;
     padding: 2rem;
+    min-height: 0; /* Critical for flex children to allow scrolling */
 }
 
 .messages {
@@ -344,6 +345,7 @@ body {
 .input-container {
     border-top: 1px solid var(--border-color);
     padding-top: 1rem;
+    flex-shrink: 0; /* Prevent input from shrinking/disappearing when messages grow */
 }
 
 .input-wrapper {
