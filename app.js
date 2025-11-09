@@ -137,8 +137,10 @@ function addMessage(role, content) {
 
     messagesDiv.appendChild(messageDiv);
 
-    // Scroll to bottom
-    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    // Scroll to bottom smoothly - use setTimeout to ensure DOM is updated
+    setTimeout(() => {
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }, 100);
 
     return messageDiv;
 }
@@ -147,15 +149,11 @@ function addMessage(role, content) {
 function displayResponse(data) {
     let html = '';
 
-    // Show SQL query if available
-    if (data.sql) {
-        html += '<div class="sql-badge">SQL Query</div>';
-        html += `<div class="sql-query">${escapeHtml(data.sql)}</div>`;
-    }
+    // DON'T show SQL query - user requested to hide it
+    // Only show the data results
 
     // Show data
     if (data.data && data.data.length > 0) {
-        html += `<p><strong>Results:</strong> ${data.row_count} row(s) found</p>`;
         html += renderTable(data.data);
     } else if (data.data && data.data.length === 0) {
         html += '<p><em>No results found.</em></p>';

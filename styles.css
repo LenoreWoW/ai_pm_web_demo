@@ -42,7 +42,9 @@ body {
 
 .app {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
 }
 
 /* Sidebar */
@@ -192,8 +194,10 @@ body {
 .messages {
     flex: 1;
     overflow-y: auto;
+    overflow-x: hidden;
     margin-bottom: 2rem;
     padding-right: 0.5rem;
+    min-height: 0; /* Important for flex scrolling */
 }
 
 .welcome-message {
