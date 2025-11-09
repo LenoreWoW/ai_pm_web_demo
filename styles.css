@@ -12,20 +12,23 @@
     --text-primary: #111827;
     --text-secondary: #6b7280;
     --border-color: #e5e7eb;
-    --accent-color: #3b82f6;
-    --accent-hover: #2563eb;
+    --accent-color: #ef4444;
+    --accent-hover: #dc2626;
     --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 body.dark {
-    /* Dark mode colors */
-    --bg-primary: #111827;
-    --bg-secondary: #1f2937;
-    --bg-tertiary: #374151;
-    --text-primary: #f9fafb;
-    --text-secondary: #9ca3af;
-    --border-color: #374151;
+    /* qaaif.org exact colors */
+    --bg-primary: rgb(23, 23, 23);
+    --bg-secondary: rgb(38, 38, 38);
+    --bg-tertiary: rgb(51, 51, 51);
+    --text-primary: rgb(236, 236, 236);
+    --text-secondary: rgb(180, 180, 180);
+    --text-accent: rgb(255, 224, 236);
+    --border-color: rgb(51, 51, 51);
+    --accent-color: rgb(239, 68, 68);
+    --accent-hover: rgb(220, 38, 38);
     --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
 }
@@ -61,10 +64,7 @@ body {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-accent, rgb(255, 224, 236));
 }
 
 .new-chat-btn {
@@ -148,7 +148,7 @@ body {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #10b981;
+    background: var(--accent-color);
     animation: pulse 2s infinite;
 }
 
@@ -262,11 +262,11 @@ body {
 }
 
 .message.user .message-role {
-    color: var(--accent-color);
+    color: var(--text-accent, rgb(255, 224, 236));
 }
 
 .message.assistant .message-role {
-    color: #10b981;
+    color: var(--text-accent, rgb(255, 224, 236));
 }
 
 .message-content {
@@ -276,8 +276,8 @@ body {
 }
 
 .message.user .message-content {
-    background: var(--accent-color);
-    color: white;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
     margin-left: 2rem;
 }
 
