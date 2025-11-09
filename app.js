@@ -81,7 +81,7 @@ async function sendMessage() {
             body: JSON.stringify({
                 question: question,
                 session_id: sessionId,
-                include_sql: true
+                include_sql: false
             })
         });
 
